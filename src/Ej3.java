@@ -81,18 +81,40 @@ public class Ej3 {
             throw new RuntimeException();
         }
         double[][] result = new double[matrixA.length][matrixA[0].length];
-        for (int i=0; i<matrixA.length; i++){
+        for (int i=0; i<matrixA[0].length; i++){
+            result[0][i] = calculator.sum(matrixA[0][i], matrixB[0][i]);
+        }
+        for (int i=1; i<matrixA.length; i++){
             for (int j=i-1; j<matrixA[0].length; j++){
-                if (j<0) j=0;
                 result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
-                System.out.println(result[i][j]);
             }
         }
         return result;
     }
 
     public double[][] exerciseBIII(double[][] matrixA, double[][] matrixB, Calculator calculator){
-
+        if (matrixA[0].length != matrixB.length){
+            throw new RuntimeException();
+        }
+        double[][] multiplication = new double[matrixA.length][matrixB[0].length];
+        //for (int i=0; i<multiplication.length; i++){
+            //for (int j=0; j<)
+        //}
+        for (int i=0; i<multiplication.length; i++){
+            for (int j=0; j<multiplication[i].length; j++){
+                double result = 0;
+                for (int k=i-1; k<=j+1 && k!=matrixB[0].length; k++){
+                    if (k<0) k=0; //fixes first run
+                    //if (k==matrixB[0].length) k= matrixB[0].length-1;
+                    //result += matrixA[i][k] * matrixB[k][j];
+                    double product = calculator.multiplication(matrixA[i][k], matrixB[k][j]);
+                    System.out.println(product);
+                    result = calculator.sum(result, product);
+                }
+                multiplication[i][j] = result;
+            }
+        }
+        return multiplication;
     }
 
     public double[] exerciseCI(double[][] matrixA, double[] vectorX, Calculator calculator){

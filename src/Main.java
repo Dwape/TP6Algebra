@@ -154,5 +154,6 @@ public class Main {
         Calc calc = new Calc();
 
         ej.exerciseBII(matrixA, matrixA, calc);
+        ej.exerciseBIII(matrixA, matrixA, calc);
     }
 }
