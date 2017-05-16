@@ -37,6 +37,21 @@ public class Ej1 {
         return sum;
     }
 
+    public double[] exerciseD(double[][] matrix, double[] vector, Calculator calculator){
+        int n = matrix.length;
+        int m = matrix[0].length;
+        double[] result = new double[n];
+        if(m==vector.length){
+            for (int i=0; i<n;i++){
+                result[i]=0;
+                for (int j=0;j<m;j++){
+                    result[i]= calculator.sum(result[i],calculator.multiplication(matrix[i][j],vector[j]));
+                }
+            }
+        }
+        return result;
+    }
+
     public double[][] exerciseE(double[][] matrix1, double[][] matrix2, Calculator calculator){
         if ((matrix1.length != matrix2.length) || (matrix1[0].length != matrix2[0].length)){
             throw new RuntimeException(); //check if there is a more elegant solution
