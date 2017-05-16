@@ -5,6 +5,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        testEx3();
+        /*
         int[][] matrix1 = new int[2][2];
         matrix1[0][0] = 1;
         matrix1[0][1] = 2;
@@ -38,13 +40,15 @@ public class Main {
         System.out.println(matrixTransposed2[0][1]);
         System.out.println(matrixTransposed2[1][0]);
         System.out.println(matrixTransposed2[1][1]);
+        */
 
-        testGianni();
+
+
+        //testGianni();
     }
-
+/*
     public static void testGianni(){
         double[] vector = {1,2,3};
-        /*
         int[][] matrix = new int[2][3];
 
 
@@ -114,6 +118,7 @@ public class Main {
         }
 
         */
+    /*
         double[][] matrix3 = new double[3][3];
 
         matrix3[0][0]=1;
@@ -131,5 +136,23 @@ public class Main {
         for (int i=0; i<result2.length;i++){
             System.out.println(result2[i]);
         }
+    }
+    */
+
+    public static void testEx3(){
+        double[][] matrixA = new double[3][3];
+        matrixA[0][0]=1;
+        matrixA[0][1]=2;
+        matrixA[0][2]=3;
+        matrixA[1][0]=4;
+        matrixA[1][1]=5;
+        matrixA[1][2]=6;
+        matrixA[2][0]=0;
+        matrixA[2][1]=7;
+        matrixA[2][2]=8;
+        Ej3 ej = new Ej3();
+        Calc calc = new Calc();
+
+        ej.exerciseBII(matrixA, matrixA, calc);
     }
 }
