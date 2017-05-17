@@ -164,8 +164,20 @@ public class Main {
         matrixB[2][1]=7;
         matrixB[2][2]=8;
 
+        double[][] matrixC = new double[3][3];
+        matrixC[0][0]=1;
+        matrixC[0][1]=0;
+        matrixC[0][2]=0;
+        matrixC[1][0]=4;
+        matrixC[1][1]=5;
+        matrixC[1][2]=0;
+        matrixC[2][0]=0;
+        matrixC[2][1]=7;
+        matrixC[2][2]=8;
+
         //ej.exerciseBII(matrixA, matrixA, calc);
         //ej.exerciseBIII(matrixA, matrixA, calc);
-        ej.exerciseCII(matrixB, matrixB, calc);
+        //ej.exerciseCIII(matrixB, matrixB, calc);
+        ej.exerciseDII(matrixA, 1, 1, matrixB, 1, 0, calc);
     }
 }

@@ -140,13 +140,29 @@ public class Ej3 {
             for (int j=l-1; j<=1+i && j<matrixA[0].length; j++){
                 result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
             }
-            l = i+1;//fixes first case
+            l = i+1;
         }
         return result;
     }
 
     public double[][] exerciseCIII(double[][] matrixA, double[][] matrixB, Calculator calculator){
-
+        if (matrixA[0].length != matrixB.length){
+            throw new RuntimeException();
+        }
+        double[][] multiplication = new double[matrixA.length][matrixB[0].length];
+        for (int i=0,l=1; i<multiplication.length; i++){
+            for (int j=0, m=1; j<multiplication[i].length; j++){
+                double result = 0;
+                for (int k=l+m-2; k<=m+1 && k<=matrixA[0].length-l; k++){
+                    double product = calculator.multiplication(matrixA[i][k], matrixB[k][j]);
+                    result = calculator.sum(result, product);
+                }
+                multiplication[i][j] = result;
+                m=j+1;
+            }
+            l=i+1;
+        }
+        return multiplication;
     }
 
     public double[] exerciseDI(double[][] matrixA, int k1A, int k2A, double[] vectorX, Calculator calculator){
@@ -164,6 +180,24 @@ public class Ej3 {
                 }
                 //for (int j=i-k1A;j>m)
             }
+        }
+        return result;
+    }
+
+    public double[][] exerciseDII(double[][] matrixA, int k1A, int k2A, double[][] matrixB, int k1B, int k2B, Calculator calculator){
+        if ((matrixA.length != matrixB.length) || (matrixA[0].length != matrixB[0].length)){
+            throw new RuntimeException();
+        }
+        double[][] result = new double[matrixA.length][matrixA[0].length];
+        for (int i=0,l=1; i<matrixA.length; i++){
+            if (k1A >= 0 && k1B >= 0) l=1; //need to check condition.
+            else l++;
+            for (int j=l-1; j<=k2A+i && j<=k2B+i && j<matrixA[0].length; j++){
+                result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
+                System.out.println(result[i][j]);
+            }
+            k1A--;
+            k1B--;
         }
         return result;
     }
