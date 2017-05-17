@@ -194,11 +194,32 @@ public class Ej3 {
             else l++;
             for (int j=l-1; j<=k2A+i && j<=k2B+i && j<matrixA[0].length; j++){
                 result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
-                System.out.println(result[i][j]);
             }
             k1A--;
             k1B--;
         }
         return result;
+    }
+
+    public double[][] exerciseDIII(double[][] matrixA, int k1A, int k2A, double[][] matrixB, int k1B, int k2B, Calculator calculator){
+        return new double[0][0];
+    }
+
+    public double[][] exerciseE(double[][] matrixA, double[][] matrixB, Calculator calculator){
+        if (matrixA[0].length != matrixB.length){
+            throw new RuntimeException();
+        }
+        double[][] multiplication = new double[matrixA.length][matrixB[0].length];
+        for (int i=0; i<multiplication.length; i++){
+            for (int j=0; j<multiplication[i].length; j++){
+                double result = 0;
+                for (int k=0; k<=i && k<=j && k<matrixB[0].length; k++){
+                    double product = calculator.multiplication(matrixA[i][k], matrixB[k][j]);
+                    result = calculator.sum(result, product);
+                }
+                multiplication[i][j] = result;
+            }
+        }
+        return multiplication;
     }
 }
