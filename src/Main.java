@@ -153,7 +153,19 @@ public class Main {
         Ej3 ej = new Ej3();
         Calc calc = new Calc();
 
-        ej.exerciseBII(matrixA, matrixA, calc);
-        ej.exerciseBIII(matrixA, matrixA, calc);
+        double[][] matrixB = new double[3][3];
+        matrixB[0][0]=1;
+        matrixB[0][1]=2;
+        matrixB[0][2]=0;
+        matrixB[1][0]=4;
+        matrixB[1][1]=5;
+        matrixB[1][2]=6;
+        matrixB[2][0]=0;
+        matrixB[2][1]=7;
+        matrixB[2][2]=8;
+
+        //ej.exerciseBII(matrixA, matrixA, calc);
+        //ej.exerciseBIII(matrixA, matrixA, calc);
+        ej.exerciseCII(matrixB, matrixB, calc);
     }
 }

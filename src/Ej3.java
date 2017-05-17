@@ -97,22 +97,19 @@ public class Ej3 {
             throw new RuntimeException();
         }
         double[][] multiplication = new double[matrixA.length][matrixB[0].length];
-        //for (int i=0; i<multiplication.length; i++){
-            //for (int j=0; j<)
-        //}
-        for (int i=0; i<multiplication.length; i++){
+        for (int i=0,l=1; i<multiplication.length; i++){
             for (int j=0; j<multiplication[i].length; j++){
                 double result = 0;
-                for (int k=i-1; k<=j+1 && k!=matrixB[0].length; k++){
-                    if (k<0) k=0; //fixes first run
+                for (int k=l-1; k<=j+1 && k!=matrixB[0].length; k++){
+                    //if (k<0) k=0; //fixes first run
                     //if (k==matrixB[0].length) k= matrixB[0].length-1;
                     //result += matrixA[i][k] * matrixB[k][j];
                     double product = calculator.multiplication(matrixA[i][k], matrixB[k][j]);
-                    System.out.println(product);
                     result = calculator.sum(result, product);
                 }
                 multiplication[i][j] = result;
             }
+            l=i+1;
         }
         return multiplication;
     }
@@ -130,11 +127,27 @@ public class Ej3 {
                     count++;
                 }
             }
-
         }
         return result;
     }
 
+    public double[][] exerciseCII(double[][] matrixA, double[][] matrixB, Calculator calculator){
+        if ((matrixA.length != matrixB.length) || (matrixA[0].length != matrixB[0].length)){
+            throw new RuntimeException();
+        }
+        double[][] result = new double[matrixA.length][matrixA[0].length];
+        for (int i=0,l=1; i<matrixA.length; i++){
+            for (int j=l-1; j<=1+i && j<matrixA[0].length; j++){
+                result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
+            }
+            l = i+1;//fixes first case
+        }
+        return result;
+    }
+
+    public double[][] exerciseCIII(double[][] matrixA, double[][] matrixB, Calculator calculator){
+
+    }
 
     public double[] exerciseDI(double[][] matrixA, int k1A, int k2A, double[] vectorX, Calculator calculator){
         int n = matrixA.length;
