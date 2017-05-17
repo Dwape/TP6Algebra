@@ -202,7 +202,22 @@ public class Ej3 {
     }
 
     public double[][] exerciseDIII(double[][] matrixA, int k1A, int k2A, double[][] matrixB, int k1B, int k2B, Calculator calculator){
-        return new double[0][0];
+        if (matrixA[0].length != matrixB.length){
+            throw new RuntimeException();
+        }
+        double[][] multiplication = new double[matrixA.length][matrixB[0].length];
+        for (int i=0; i<multiplication.length; i++){
+            for (int j=0; j<multiplication[0].length; j++){ //changed index i to 0
+                double result = 0;
+                for (int k= Math.max(0, Math.max(j-k2B, i-k1A)); k<=i+k2A && k<=j+k1B && k<=matrixA[0].length; k++){
+                    double product = calculator.multiplication(matrixA[i][k], matrixB[k][j]);
+                    result = calculator.sum(result, product);
+                    System.out.println(result);
+                }
+                multiplication[i][j] = result;
+            }
+        }
+        return multiplication;
     }
 
     public double[][] exerciseE(double[][] matrixA, double[][] matrixB, Calculator calculator){

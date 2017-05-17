@@ -155,19 +155,19 @@ public class Main {
 
         double[][] matrixB = new double[3][3];
         matrixB[0][0]=1;
-        matrixB[0][1]=0;
+        matrixB[0][1]=2;
         matrixB[0][2]=0;
         matrixB[1][0]=4;
         matrixB[1][1]=5;
-        matrixB[1][2]=0;
-        matrixB[2][0]=2;
+        matrixB[1][2]=6;
+        matrixB[2][0]=0;
         matrixB[2][1]=7;
         matrixB[2][2]=8;
 
         double[][] matrixC = new double[3][3];
         matrixC[0][0]=1;
         matrixC[0][1]=2;
-        matrixC[0][2]=3;
+        matrixC[0][2]=0;
         matrixC[1][0]=0;
         matrixC[1][1]=5;
         matrixC[1][2]=4;
@@ -179,6 +179,7 @@ public class Main {
         //ej.exerciseBIII(matrixA, matrixA, calc);
         //ej.exerciseCIII(matrixB, matrixB, calc);
         //ej.exerciseDII(matrixA, 1, 1, matrixB, 1, 0, calc);
-        ej.exerciseE(matrixB, matrixC, calc);
+        //ej.exerciseE(matrixB, matrixC, calc);
+        ej.exerciseDIII(matrixB, 1, 1, matrixC, 0, 1, calc);
     }
 }
