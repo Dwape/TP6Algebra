@@ -3,12 +3,13 @@
  */
 public class Ej1 {
 
-    public Ej1(Calculator calculator){
+    public Ej1(){
     }
 
     public double exerciseA(double[][] matrix, Calculator calculator){
         double sum = 0;
-        for (int i=0; i<matrix[i].length; i++){
+        int m = matrix[0].length;
+        for (int i=0; i<m; i++){
             //sum += matrix[i][i];
             sum = calculator.sum(sum, matrix[i][i]);
         }
@@ -17,9 +18,10 @@ public class Ej1 {
 
     public double exerciseB(double[][] matrix, Calculator calculator){
         double sum = 0;
-        for (int i=0; i<matrix[i].length; i++){
+        int m = matrix[0].length;
+        for (int i=0; i<m; i++){
             //sum += matrix[i][matrix[i].length-1-i];
-            sum = calculator.sum(sum, matrix[i][matrix[i].length-1-i]);
+            sum = calculator.sum(sum, matrix[i][m-1-i]);
         }
         return sum;
     }
