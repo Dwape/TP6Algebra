@@ -1,5 +1,8 @@
 /**
- * Created by Gianni on 5/17/2017.
+ * class Ej4
+ * @author Gianluca Scolaro
+ * @author Eduardo Lalor
+ * @since  5/9/17.
  */
 public class Ej4 {
 

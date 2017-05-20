@@ -1,5 +1,8 @@
 /**
- * Created by Dwape on 5/9/17.
+ * class Ej2
+ * @author Gianluca Scolaro
+ * @author Eduardo Lalor
+ * @since  5/9/17.
  */
 public class Ej2 {
 
