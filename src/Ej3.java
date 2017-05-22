@@ -171,20 +171,16 @@ public class Ej3 {
     public double[] exerciseDI(double[][] matrixA, int k1A, int k2A, double[] vectorX, Calculator calculator){
         int n = matrixA.length;
         int m = matrixA[0].length;
-        double[] result = new double[n];
-        if(m==vectorX.length && n==m){
-            for (int i=0; i<n;i++){
-                result[i]=0;
-                int j=0;
-                while ( j<m){
-                    if (j>=i-k1A && j<=i+k2A) result[i] = calculator.sum(result[i],calculator.multiplication(matrixA[i][j],vectorX[j]));
-                    //result[i] += matrixA[i][j] * vectorX[j];
-                    j++;
-                }
-                //for (int j=i-k1A;j>m)
+        double[] multiplication = new double[n];
+        for (int i=0; i<n; i++){
+            double result = 0;
+            for (int k= Math.max(0, i-k1A); k<=i+k2A && k<=matrixA[0].length; k++){
+                double product = calculator.multiplication(matrixA[i][k], vectorX[k]);
+                result = calculator.sum(result, product);
             }
+            multiplication[i] = result;
         }
-        return result;
+        return multiplication;
     }
 
     public double[][] exerciseDII(double[][] matrixA, int k1A, int k2A, double[][] matrixB, int k1B, int k2B, Calculator calculator){
@@ -215,7 +211,6 @@ public class Ej3 {
                 for (int k= Math.max(0, Math.max(j-k2B, i-k1A)); k<=i+k2A && k<=j+k1B && k<=matrixA[0].length; k++){
                     double product = calculator.multiplication(matrixA[i][k], matrixB[k][j]);
                     result = calculator.sum(result, product);
-                    System.out.println(result);
                 }
                 multiplication[i][j] = result;
             }
