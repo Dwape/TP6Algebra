@@ -1,5 +1,9 @@
+
 /**
- * Created by Dwape on 5/16/17.
+ * class Calc
+ * @author Gianluca Scolaro
+ * @author Eduardo Lalor
+ * @since  5/9/17.
  */
 public class Calc implements Calculator{
 
