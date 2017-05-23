@@ -7,8 +7,8 @@ public class Main {
         //testEx2();
         //testEx3A();
         //testEx3B();
-        //testEx3C();
-        testEx3D();
+        testEx3C();
+        //testEx3D();
         //testEx3E();
         //testEx4();
     }
@@ -278,6 +278,7 @@ public class Main {
             System.out.println(result1[i]);
         }
         System.out.println("");
+
         double[][] result2 = ej3.exerciseCII(matrix1,matrix2,new Calc());
 
         for (int i=0; i<result2[0].length;i++){
@@ -286,7 +287,9 @@ public class Main {
             }
             System.out.println("");
         }
+
         System.out.println("");
+
         double[][] result3 = ej3.exerciseCIII(matrix1,matrix2,new Calc());
 
         for (int i=0; i<result3[0].length;i++){
@@ -342,15 +345,13 @@ public class Main {
         }
         System.out.println("");
 
-        double[] result2 = ej3.exerciseDI(matrixB,0,0,vector,new Calc());
+        double[] result2 = ej3.exerciseDI(matrixB,1,1,vector,new Calc());
 
         for (int i=0; i<result2.length;i++){
             System.out.println(result2[i]);
         }
+
         System.out.println("");
-
-
-
 
         double[][] result3 = ej3.exerciseDII(matrixB, 1, 1, matrixC, 0, 1, new Calc());
 

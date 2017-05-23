@@ -117,18 +117,26 @@ public class Ej3 {
     public double[] exerciseCI(double[][] matrixA, double[] vectorX, Calculator calculator){
         int n = matrixA.length;
         int m = matrixA[0].length;
-        double[] result = new double[n];
+        double[] multiplication = new double[n];
         if(m==vectorX.length && n==m){//has to be squared
-            int count =0;
-            for (int i=0; i<n;i++){
-                result[i]=0;
-                for (int j=i;j<m-count;j++){
-                    result[i] += matrixA[i][j] * vectorX[j];
-                    count++;
+            for (int i=0; i<=1;i++){
+                double result = 0;
+                for (int k=0; k<=i+1; k++){
+                    double product = calculator.multiplication(matrixA[i][k], vectorX[k]);
+                    result = calculator.sum(result, product);
                 }
+                multiplication[i]=result;
+            }
+            for (int i=2; i<n;i++){
+                double result = 0;
+                for (int k=i-1; k<=i+1 && k<m; k++){
+                    double product = calculator.multiplication(matrixA[i][k], vectorX[k]);
+                    result = calculator.sum(result, product);
+                }
+                multiplication[i]=result;
             }
         }
-        return result;
+        return multiplication;
     }
 
     public double[][] exerciseCII(double[][] matrixA, double[][] matrixB, Calculator calculator){
@@ -167,13 +175,15 @@ public class Ej3 {
         int n = matrixA.length;
         int m = matrixA[0].length;
         double[] multiplication = new double[n];
-        for (int i=0; i<n; i++){
-            double result = 0;
-            for (int k= Math.max(0, i-k1A); k<=i+k2A && k<=matrixA[0].length; k++){
-                double product = calculator.multiplication(matrixA[i][k], vectorX[k]);
-                result = calculator.sum(result, product);
+        if(m==vectorX.length && n==m){
+            for (int i=0; i<n; i++){
+                double result = 0;
+                for (int k= Math.max(0, i-k1A); k<=i+k2A && k<=matrixA[0].length-1; k++){
+                    double product = calculator.multiplication(matrixA[i][k], vectorX[k]);
+                    result = calculator.sum(result, product);
+                }
+                multiplication[i] = result;
             }
-            multiplication[i] = result;
         }
         return multiplication;
     }
