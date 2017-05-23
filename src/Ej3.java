@@ -4,7 +4,7 @@
  * @author Eduardo Lalor
  * @since  5/9/17.
  */
-public class Ej3 {
+public class Ej3 implements Exercise3{
 
     public double[] exerciseAI(double[][] matrixA, double[] vectorX, Calculator calculator){
         int n = matrixA.length;

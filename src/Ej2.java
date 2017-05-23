@@ -4,7 +4,7 @@
  * @author Eduardo Lalor
  * @since  5/9/17.
  */
-public class Ej2 {
+public class Ej2 implements Exercise2 {
 
     public boolean exerciseA(double[][] matrix, Calculator calculator){//calculator not needed.
         int n = matrix.length;

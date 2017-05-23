@@ -8,7 +8,7 @@
  * @author Eduardo Lalor
  * @since  5/9/17.
  */
-public class Ej1 {
+public class Ej1 implements Exercise1{
 
     public Ej1(){
     }
