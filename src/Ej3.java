@@ -193,14 +193,10 @@ public class Ej3 {
             throw new RuntimeException();
         }
         double[][] result = new double[matrixA.length][matrixA[0].length];
-        for (int i=0,l=1; i<matrixA.length; i++){
-            if (k1A >= 0 && k1B >= 0) l=1;
-            else l++;
-            for (int j=l-1; j<=k2A+i && j<=k2B+i && j<matrixA[0].length; j++){
-                result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
+        for (int i=0; i<result.length; i++){
+            for (int k= Math.max(0, Math.min(i-k2B, i-k1A)); k<=Math.max(i+k2A, i+k1B) && k<matrixA[0].length; k++){
+                result[i][k] = calculator.sum(matrixA[i][k], matrixB[i][k]);
             }
-            k1A--;
-            k1B--;
         }
         return result;
     }
