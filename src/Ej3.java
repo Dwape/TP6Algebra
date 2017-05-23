@@ -14,9 +14,6 @@ public class Ej3 {
             for (int i=0; i<n;i++){
                 result[i]=0;
                 for (int j=i;j<m;j++){
-                    //System.out.println(matrix[i][j]);
-                    //System.out.println(vector[j]);
-                    //result[i] += matrixA[i][j] * vectorX[j];
                     result[i] = calculator.sum(result[i],calculator.multiplication(matrixA[i][j],vectorX[j]));
                 }
             }
@@ -153,17 +150,15 @@ public class Ej3 {
             throw new RuntimeException();
         }
         double[][] multiplication = new double[matrixA.length][matrixB[0].length];
-        for (int i=0,l=1; i<multiplication.length; i++){
-            for (int j=0, m=1; j<multiplication[i].length; j++){
+        for (int i=0; i<multiplication.length; i++){
+            for (int j=0; j<multiplication[0].length; j++){ //changed index i to 0
                 double result = 0;
-                for (int k=l+m-2; k<=m+1 && k<=matrixA[0].length-l; k++){
+                for (int k= Math.max(0, Math.max(j-1, i-1)); k<=i+1 && k<=j+1 && k<matrixA[0].length; k++){
                     double product = calculator.multiplication(matrixA[i][k], matrixB[k][j]);
                     result = calculator.sum(result, product);
                 }
                 multiplication[i][j] = result;
-                m=j+1;
             }
-            l=i+1;
         }
         return multiplication;
     }
@@ -189,7 +184,7 @@ public class Ej3 {
         }
         double[][] result = new double[matrixA.length][matrixA[0].length];
         for (int i=0,l=1; i<matrixA.length; i++){
-            if (k1A >= 0 && k1B >= 0) l=1; //need to check condition.
+            if (k1A >= 0 && k1B >= 0) l=1;
             else l++;
             for (int j=l-1; j<=k2A+i && j<=k2B+i && j<matrixA[0].length; j++){
                 result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
@@ -208,7 +203,7 @@ public class Ej3 {
         for (int i=0; i<multiplication.length; i++){
             for (int j=0; j<multiplication[0].length; j++){ //changed index i to 0
                 double result = 0;
-                for (int k= Math.max(0, Math.max(j-k2B, i-k1A)); k<=i+k2A && k<=j+k1B && k<=matrixA[0].length; k++){
+                for (int k= Math.max(0, Math.max(j-k2B, i-k1A)); k<=i+k2A && k<=j+k1B && k<matrixA[0].length; k++){
                     double product = calculator.multiplication(matrixA[i][k], matrixB[k][j]);
                     result = calculator.sum(result, product);
                 }
