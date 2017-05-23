@@ -3,14 +3,14 @@
  */
 public class Main {
     public static void main(String[] args) {
-        //testEx1();
-        //testEx2();
-        //testEx3A();
-        //testEx3B();
+        testEx1();
+        testEx2();
+        testEx3A();
+        testEx3B();
         testEx3C();
-        //testEx3D();
-        //testEx3E();
-        //testEx4();
+        testEx3D();
+        testEx3E();
+        testEx4();
     }
 
 
@@ -113,10 +113,10 @@ public class Main {
         System.out.println(ej2.exerciseA(matrix2,new Calc()));
         System.out.println("");
         double[][] matrix3 = new double[2][2];
-        matrix1[0][0] = 1;
-        matrix1[0][1] = 2;
-        matrix1[1][0] = 0;
-        matrix1[1][1] = 3;
+        matrix3[0][0] = 1;
+        matrix3[0][1] = 2;
+        matrix3[1][0] = 0;
+        matrix3[1][1] = 3;
 
         System.out.println(ej2.exerciseB(matrix3,new Calc()));
         System.out.println("");
@@ -194,15 +194,15 @@ public class Main {
         matrix1[2][0]=0;
 
         double[][] matrix2 = new double[3][3];
-        matrix1[0][0]=1;
-        matrix1[0][1]=2;
-        matrix1[0][2]=3;
-        matrix1[1][0]=4;
-        matrix1[1][1]=5;
-        matrix1[1][2]=6;
-        matrix1[2][0]=0;
-        matrix1[2][1]=7;
-        matrix1[2][2]=8;
+        matrix2[0][0]=1;
+        matrix2[0][1]=2;
+        matrix2[0][2]=3;
+        matrix2[1][0]=4;
+        matrix2[1][1]=5;
+        matrix2[1][2]=6;
+        matrix2[2][0]=0;
+        matrix2[2][1]=7;
+        matrix2[2][2]=8;
 
 
         double[] result1 = ej3.exerciseBI(matrix1,vector,new Calc());
@@ -255,22 +255,22 @@ public class Main {
         matrix1[3][3]=3;
 
         double[][] matrix2 = new double[4][4];
-        matrix1[0][0]=1;
-        matrix1[0][1]=7;
-        matrix1[0][2]=0;
-        matrix1[0][3]=0;
-        matrix1[1][0]=1;
-        matrix1[1][1]=4;
-        matrix1[1][2]=1;
-        matrix1[1][3]=0;
-        matrix1[2][0]=0;
-        matrix1[2][1]=-1;
-        matrix1[2][2]=3;
-        matrix1[2][3]=9;
-        matrix1[3][0]=0;
-        matrix1[3][1]=0;
-        matrix1[3][2]=1;
-        matrix1[3][3]=5;
+        matrix2[0][0]=1;
+        matrix2[0][1]=7;
+        matrix2[0][2]=0;
+        matrix2[0][3]=0;
+        matrix2[1][0]=1;
+        matrix2[1][1]=4;
+        matrix2[1][2]=1;
+        matrix2[1][3]=0;
+        matrix2[2][0]=0;
+        matrix2[2][1]=-1;
+        matrix2[2][2]=3;
+        matrix2[2][3]=9;
+        matrix2[3][0]=0;
+        matrix2[3][1]=0;
+        matrix2[3][2]=1;
+        matrix2[3][3]=5;
 
         double[] result1 = ej3.exerciseCI(matrix1,vector,new Calc());
 
@@ -362,6 +362,7 @@ public class Main {
             System.out.println("");
         }
         System.out.println("");
+
         double[][] result4 = ej3.exerciseDIII(matrixB, 1, 1, matrixC, 0, 1, new Calc());
 
         for (int i=0; i<result4[0].length;i++){
